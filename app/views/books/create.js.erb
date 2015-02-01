@@ -1,0 +1,14 @@
+$('.book-list').prepend('<%= j render collection: @presenter.books, partial: 'books/book' %>');
+var form = $('#new_book');
+form.find('input[type=text]').val('');
+form.find('textarea').val('');
+form.find('input[type=radio]').removeAttr('checked');
+form.find('option').removeAttr('selected');
+form.find('input[type=checkbox]').removeAttr('checked');
+
+// Dismiss modal
+$('#book-form-modal').hide();
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+
+

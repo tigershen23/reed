@@ -1,0 +1,86 @@
+.close {
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 24px;
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.list-group {
+
+  &-item {
+    padding: 15px;
+  }
+
+  &-item-text {
+    color: $gray-light;
+  }
+}
+
+.well {
+  border-radius: 0;
+  @include box-shadow(none);
+}
+
+.panel {
+  border: none;
+  border-radius: 2px;
+  @include box-shadow(0 1px 4px rgba(0,0,0,.3));
+
+  &-heading {
+    border-bottom: none;
+  }
+
+  &-footer {
+    border-top: none;
+  }
+
+  &-success {
+    .panel-heading {
+      background-color: $brand-success;
+    }
+
+    .panel-title {
+      color: #fff;
+    }
+  }
+
+  &-info {
+    .panel-heading {
+      background-color: $brand-info;
+    }
+
+    .panel-title {
+      color: #fff;
+    }
+  }
+
+  &-warning {
+    .panel-heading {
+      background-color: $brand-warning;
+    }
+
+    .panel-title {
+      color: #fff;
+    }
+  }
+
+  &-danger {
+    .panel-heading {
+      background-color: $brand-danger;
+    }
+
+    .panel-title {
+      color: #fff;
+    }
+  }
+}
+
+.popover {
+  border: none;
+  @include box-shadow(0 1px 4px rgba(0,0,0,.3));
+}
+

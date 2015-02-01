@@ -1,0 +1,40 @@
+<li class="row rating-<%= book.rating %> book">
+  <div class="col-sm-2">
+    <a href="#" target="_blank">
+      <%= image_tag @presenter.amazon_image_url(book.amazon_id) %>
+    </a>
+    <p class="text-center rating">
+      <% if book.rating.present? %>
+        <strong><%= book.rating %></strong>/5
+      <% else %>
+        N/A
+      <% end %>
+    </p>
+  </div>
+
+  <div class="col-sm-9 col-sm-offset-1">
+    <div class="pull-right remove-book">
+      <%= link_to raw("<i class='fa fa-times fa-2x'></i>"),
+                   book_path(book.id),
+                   method: :delete,
+                   remote: true,
+                   data: { confirm: "Are you sure?" },
+                   class: 'remove-book-btn' %>
+    </div>
+    <h3>
+      <a href="#" class="book-title"><%= book.title %></a>
+    </h3>
+    <p class="text-muted"><em>Written by <%= book.author %></em></p>
+
+    <div>
+      <p>
+        <%= book.description %>
+      </p>
+    </div>
+      <span>
+        <% book.genres.each do |genre|  %>
+          <%= link_to genre.name, books_path(filter: genre.name), class: 'label label-warning' %>
+        <% end  %>
+      </span>
+  </div>
+</li>

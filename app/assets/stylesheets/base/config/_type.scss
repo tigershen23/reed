@@ -1,0 +1,20 @@
+// horizontal offset for forms and lists.
+$component-offset-horizontal: 180px;
+// text muted color
+$text-muted:                  $gray-light;
+// abbreviations and acronyms border color
+$abbr-border-color:           $gray-light;
+// headings small color
+$headings-small-color:        $gray-light;
+// blockquote small color
+$blockquote-small-color:      $gray-light;
+// blockquote font size
+$blockquote-font-size:        ($font-size-base * 1.25);
+// blockquote border color
+$blockquote-border-color:     $gray-lighter;
+// page header border color
+$page-header-border-color:    $gray-lighter;
+// width of horizontal description list titles
+$dl-horizontal-offset:        $component-offset-horizontal;
+// horizontal line color.
+$hr-border:                   $gray-lighter;

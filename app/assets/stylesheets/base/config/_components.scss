@@ -1,0 +1,31 @@
+// common padding and border radius sizes, etc.
+
+$padding-base-vertical:     6px;
+$padding-base-horizontal:   16px;
+
+$padding-large-vertical:    10px;
+$padding-large-horizontal:  16px;
+
+$padding-small-vertical:    5px;
+$padding-small-horizontal:  10px;
+
+$padding-xs-vertical:       1px;
+$padding-xs-horizontal:     5px;
+
+$line-height-large:         1.33;
+$line-height-small:         1.5;
+
+$border-radius-base:        3px;
+$border-radius-large:       3px;
+$border-radius-small:       3px;
+
+// global color for active items (e.g., navs or dropdowns).
+$component-active-color:    #fff;
+// global background color for active items (e.g., navs or dropdowns).
+$component-active-bg:       $brand-primary;
+
+// width of the `border` for generating carets that indicate dropdowns.
+$caret-width-base:          4px;
+// carets increase slightly in size for larger components.
+$caret-width-large:         5px;
+

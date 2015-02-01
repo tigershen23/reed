@@ -1,0 +1,47 @@
+h3 {
+  margin-top: 0;
+}
+
+.book {
+  margin: 0 0 35px 0;
+}
+
+#book-form-modal {
+  display: none;
+  padding: 0 0 10px;
+  margin: 0 0 20px 0;
+}
+
+#book_genre_ids {
+  height: 131px;
+}
+
+.book-search {
+  margin: 5px 20px 0 0;
+}
+
+.books-content {
+  padding: 40px 0 0 0;
+}
+
+.rating {
+  max-width: 97px;
+  font-size: 1.8em;
+  padding-top: 8px;
+}
+
+.book .remove-book {
+  color: $brand-primary;
+  display: none;
+}
+
+.book:hover .remove-book {
+  display: inline-block;
+}
+
+.rating-5 .rating { color: $brand-success; }
+.rating-4 .rating { color: $brand-info;    }
+.rating-3 .rating { color: $brand-primary; }
+.rating-2 .rating { color: $brand-warning; }
+.rating-1 .rating { color: $brand-danger;  }
+

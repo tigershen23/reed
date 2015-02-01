@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row books-content">
+    <div class="col-sm-8">
+      <ul class="list-unstyled book-list">
+        <%= render collection: @presenter.books, partial: 'books/book' %>
+      </ul>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">
+      <ul class="list-unstyled">
+        <%= render collection: @presenter.genres, partial: 'genres/genre' %>
+      </ul>
+    </div>
+  </div>
+
+  <!-- modal -->
+  <%= render partial: 'books/form' %>
+</div>

@@ -1,0 +1,40 @@
+// `<input>` background color
+$input-bg:                       transparent;
+// `<input disabled>` background color
+$input-bg-disabled:              transparent;
+
+// text color for `<input>`s
+$input-color:                    $gray;
+// `<input>` border color
+$input-border:                   transparent;
+
+// default `.form-control` border radius
+$input-border-radius:            $border-radius-base;
+// large `.form-control` border radius
+$input-border-radius-large:      $border-radius-large;
+// small `.form-control` border radius
+$input-border-radius-small:      $border-radius-small;
+
+// border color for inputs on focus
+$input-border-focus:             #66afe9;
+
+// placeholder text color
+$input-color-placeholder:        $gray-light;
+
+// default `.form-control` height
+$input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2);
+// large `.form-control` height
+$input-height-large:             (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2);
+// small `.form-control` height
+$input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2);
+
+$legend-color:                   $gray-dark;
+$legend-border-color:            #e5e5e5;
+
+// background color for textual input addons
+$input-group-addon-bg:           transparent;
+// border color for textual input addons
+$input-group-addon-border-color: $input-border;
+
+// disabled cursor for form controls and buttons.
+$cursor-disabled:                not-allowed;

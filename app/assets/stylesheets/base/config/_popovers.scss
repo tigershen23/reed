@@ -1,0 +1,13 @@
+$popover-bg:                          #fff;
+$popover-border-color:                transparent;
+$popover-max-width:                   276px;
+$popover-fallback-border-color:       transparent;
+
+$popover-title-bg:                    darken($popover-bg, 3%);
+
+$popover-arrow-width:                 10px;
+$popover-arrow-color:                 $popover-bg;
+
+$popover-arrow-outer-width:           ($popover-arrow-width + 1);
+$popover-arrow-outer-color:           fadein($popover-border-color, 7.5%);
+$popover-arrow-outer-fallback-color:  darken($popover-fallback-border-color, 20%);

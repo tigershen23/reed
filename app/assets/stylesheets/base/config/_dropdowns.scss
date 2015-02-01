@@ -1,0 +1,27 @@
+// background for the dropdown menu.
+$dropdown-bg:                    #fff;
+// dropdown menu `border-color`.
+$dropdown-border:                rgba(0,0,0,.15);
+// dropdown menu `border-color` for IE8.
+$dropdown-fallback-border:       #ccc;
+// divider color for between dropdown items.
+$dropdown-divider-bg:            #e5e5e5;
+
+// dropdown link text color.
+$dropdown-link-color:            $text-color;
+// hover color for dropdown links.
+$dropdown-link-hover-color:      darken($gray-dark, 5%);
+// hover background for dropdown links.
+$dropdown-link-hover-bg:         $gray-lighter;
+
+// active dropdown menu item text color.
+$dropdown-link-active-color:     $component-active-color;
+// active dropdown menu item background color.
+$dropdown-link-active-bg:        $component-active-bg;
+
+// disabled dropdown menu item background color.
+$dropdown-link-disabled-color:   $gray-light;
+
+// text color for headers within dropdown menus.
+$dropdown-header-color:          $gray-light;
+
