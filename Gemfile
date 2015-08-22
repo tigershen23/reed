@@ -30,6 +30,7 @@ group :development, :test do
   gem 'dotenv-rails',                       '~> 1.0.2'        # manage env/config vars
   gem 'guard-rspec',                        '~> 4.3.1'        # watch and run tests
   gem 'guard-spork',                        '~> 1.5.1'        # spork integration with gaurd
+  gem 'pry-rails',                          '~> 0.3.4'
   gem 'quiet_assets',                       '~> 1.0.3'        # silence asset loads in server logs
   gem 'rspec-rails',                        '~> 3.0.2'        # testing framework
   gem 'spork-rails',                        '~> 4.0.0'        # fork before running tests
