@@ -1,5 +1,6 @@
-class PopulateGenres < ActiveRecord::Migration
-  def up
+namespace "populate_genres" do
+  desc "Populate Genre table with list of genres"
+  task :execute => [:environment] do
     genres = []
     now = Time.now
     GenreList::GENRES.each do |genre|
@@ -10,10 +11,6 @@ class PopulateGenres < ActiveRecord::Migration
           VALUES #{genres.join(', ')}"
 
     ActiveRecord::Base.connection.execute sql
-  end
-
-  def down
-    Genre.destroy_all
   end
 end
 
