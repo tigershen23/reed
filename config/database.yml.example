@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: reading_list_development
+  database: reed_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  username: rails_development
+  username: reed
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,5 +57,5 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: reading_list_test
-  username: rails_test
+  database: reed_test
+  username: reed
