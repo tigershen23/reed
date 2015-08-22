@@ -1,6 +1,11 @@
 require 'acceptance_helper'
 
-xpect(page).to have_content("Reed")
+RSpec.describe 'New Book', type: :feature do
+  scenario "User creates a new book via the home page form", js: true do
+    skip
+    visit(root_path)
+
+    expect(page).to have_content("Reed")
 
     click_link 'Add a Book'
 
