@@ -40,7 +40,6 @@ group :development do
   gem 'awesome_print',                      '~> 1.2.0'        # pretty printing of Ruby outputs
   gem 'better_errors',                      '~> 2.0.0'        # nice, useful error pages
   gem 'binding_of_caller',                  '~> 0.7.2'        # dependency of better_errors
-  gem 'spring',                             '~> 1.1.3'        # keep app running in background
 end
 
 group :test do
