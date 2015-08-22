@@ -32,11 +32,15 @@ h3 {
 
 .book .remove-book {
   color: $brand-primary;
-  display: none;
+  transition: opacity .6s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .book:hover .remove-book {
-  display: inline-block;
+  opacity: 1;
+  height: auto;
 }
 
 .rating-5 .rating { color: $brand-success; }
