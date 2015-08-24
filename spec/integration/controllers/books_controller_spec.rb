@@ -30,8 +30,23 @@ RSpec.describe BooksController, :type => :controller do
     context 'with AJAX' do
       it 'creates a book' do
         expect do
-          xhr :post, :create, { book: book_params }
+          xhr :post, :create, { book: book_create_params }
         end.to change(Book, :count).by(1)
+      end
+    end
+  end
+
+  describe '#edit' do
+  end
+
+  describe '#update' do
+    before { get :index, {} } # create the guest user and first book
+
+    context 'with AJAX' do
+      it 'edits the book' do
+        expect do
+          xhr :put, :update, { id: book.id, book: book_update_params }
+        end.to change(book, :description)
       end
     end
   end
@@ -50,12 +65,18 @@ RSpec.describe BooksController, :type => :controller do
     end
   end
 
-  def book_params
+  def book_create_params
     {
         title: Faker::Company.name,
         author: Faker::Name.name,
         description: Faker::Lorem.sentence,
         amazon_id: Faker::Bitcoin.address
+    }
+  end
+
+  def book_update_params
+    {
+        description: Faker::Lorem.sentence
     }
   end
 end
