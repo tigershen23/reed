@@ -49,12 +49,14 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
+    book = domain_factory.book_repository.find_by_id(params[:id])
+    @presenter = domain_factory.book_presenter(book, nil)
+
     respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
-        format.json { render :show, status: :ok, location: @book }
+      if domain_factory.book_repository.update(book, book_params)
+        format.js
       else
-        format.html { render :edit }
+        format.html { render :new }
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
     end

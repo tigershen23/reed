@@ -16,6 +16,7 @@ module Domain
     # Delegate fetching of model attributes to the record
     def_delegators :@record,
                    :amazon_id,
+                   :assign_attributes,
                    :author,
                    :description,
                    :finished_on,
@@ -24,7 +25,7 @@ module Domain
                    :keywords,
                    :rating,
                    :reader_id,
-                   :title
+                   :title,
 
     def finished?
       finished_on.present?

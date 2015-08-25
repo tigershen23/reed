@@ -3,7 +3,7 @@ module Domain
     RATINGS_RANGE = 1..5
 
     def initialize(books, genres)
-      @books = books
+      @books = Array(books)
       @genres = genres
     end
 

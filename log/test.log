@@ -1,0 +1,400 @@
+  [1m[36mSQL (24.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (28.4ms)[0m  CREATE TABLE "book_genres" ("id" serial primary key, "book_id" integer, "genre_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_book_genres_on_book_id" ON "book_genres" USING btree ("book_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_book_genres_on_genre_id" ON "book_genres" USING btree ("genre_id")
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "books" ("id" serial primary key, "title" character varying(255), "author" character varying(255), "description" text, "amazon_id" character varying(255), "created_at" timestamp, "updated_at" timestamp, "rating" integer, "finished_on" date, "keywords" text, "reader_id" integer) [0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "genres" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "readers" ("id" serial primary key, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150129025415')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141116033057')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141116034914')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141116035211')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141116050124')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141116054741')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141116055247')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141116060201')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141116061711')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150129024814')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 19:51:04.169236"], ["id", 2614], ["updated_at", "2015-08-22 19:51:04.169236"]]
+  [1m[35m (6.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 19:51:04.396873"], ["id", 2185], ["updated_at", "2015-08-22 19:51:04.396873"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 19:51:04.407797"], ["id", 8533], ["updated_at", "2015-08-22 19:51:04.407797"]]
+  [1m[35m (5.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 19:51:04.417762"], ["id", 8797], ["updated_at", "2015-08-22 19:51:04.417762"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 19:59:30.873318"], ["id", 4764], ["updated_at", "2015-08-22 19:59:30.873318"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 19:59:45.549554"], ["id", 5541], ["updated_at", "2015-08-22 19:59:45.549554"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 19:59:45.747142"], ["id", 6018], ["updated_at", "2015-08-22 19:59:45.747142"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 19:59:45.751361"], ["id", 4067], ["updated_at", "2015-08-22 19:59:45.751361"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 19:59:45.754026"], ["id", 3360], ["updated_at", "2015-08-22 19:59:45.754026"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 20:02:44.185107"], ["id", 787], ["updated_at", "2015-08-22 20:02:44.185107"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 20:02:44.381019"], ["id", 6260], ["updated_at", "2015-08-22 20:02:44.381019"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 20:02:44.384841"], ["id", 5125], ["updated_at", "2015-08-22 20:02:44.384841"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 20:02:44.387512"], ["id", 8340], ["updated_at", "2015-08-22 20:02:44.387512"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 20:03:55.475373"], ["id", 2453], ["updated_at", "2015-08-22 20:03:55.475373"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 20:03:55.669227"], ["id", 5287], ["updated_at", "2015-08-22 20:03:55.669227"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 20:03:55.673318"], ["id", 8612], ["updated_at", "2015-08-22 20:03:55.673318"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 20:03:55.675920"], ["id", 5366], ["updated_at", "2015-08-22 20:03:55.675920"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "book_genres" DISABLE TRIGGER ALL;ALTER TABLE "books" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "readers" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (5.1ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reed_test'[0m
+  [1m[35m (7.6ms)[0m  TRUNCATE TABLE "book_genres", "books", "genres", "readers" RESTART IDENTITY CASCADE;
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "book_genres" ENABLE TRIGGER ALL;ALTER TABLE "books" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "readers" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 20:04:04.541365"], ["id", 463], ["updated_at", "2015-08-22 20:04:04.541365"]]
+  [1m[35mBook Load (4.6ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 463  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered books/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 44ms (Views: 11.1ms | ActiveRecord: 6.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 20:04:04.583591"], ["id", 3364], ["updated_at", "2015-08-22 20:04:04.583591"]]
+  [1m[35mBook Load (0.2ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 3364  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.1ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Processing by BooksController#index as HTML
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 20:04:04.589689"], ["id", 3306], ["updated_at", "2015-08-22 20:04:04.589689"]]
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT "books".* FROM "books"  WHERE "books"."reader_id" = 3306  ORDER BY created_at DESC[0m
+  [1m[35mGenre Load (0.1ms)[0m  SELECT "genres".* FROM "genres"
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "books"[0m
+Processing by BooksController#create as JS
+  Parameters: {"book"=>{"title"=>"Kuphal, Rutherford and Moore", "author"=>"Mr. Charity Mertz", "description"=>"Doloremque ipsum itaque non aliquid repudiandae nemo laudantium ut.", "amazon_id"=>"1Hq1xRwq68uFEVRzafgsnACeANcWD5tJoX"}}
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["amazon_id", "1Hq1xRwq68uFEVRzafgsnACeANcWD5tJoX"], ["author", "Mr. Charity Mertz"], ["created_at", "2015-08-22 20:04:04.834237"], ["description", "Doloremque ipsum itaque non aliquid repudiandae nemo laudantium ut."], ["keywords", "kuphal, rutherford and moore mr. charity mertz doloremque ipsum itaque non aliquid repudiandae nemo laudantium ut."], ["reader_id", 3306], ["title", "Kuphal, Rutherford and Moore"], ["updated_at", "2015-08-22 20:04:04.834237"]]
+Completed 200 OK in 15ms (Views: 3.8ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "books"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Processing by BooksController#index as HTML
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 20:04:04.845001"], ["id", 1125], ["updated_at", "2015-08-22 20:04:04.845001"]]
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT "books".* FROM "books"  WHERE "books"."reader_id" = 1125  ORDER BY created_at DESC[0m
+  [1m[35mGenre Load (0.1ms)[0m  SELECT "genres".* FROM "genres"
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 20:04:04.847917"], ["id", 7324], ["updated_at", "2015-08-22 20:04:04.847917"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "rating", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["amazon_id", "1BhBLeMyQ562yZCyVgj6Qyo4pMFqMkh1Cu"], ["author", "Geovanny Smith V"], ["created_at", "2015-08-22 20:04:04.849281"], ["description", "Fugiat qui voluptas totam."], ["keywords", "reilly and sons geovanny smith v fugiat qui voluptas totam."], ["rating", 5], ["reader_id", 7324], ["title", "Reilly and Sons"], ["updated_at", "2015-08-22 20:04:04.849281"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "books"[0m
+Processing by BooksController#destroy as JS
+  Parameters: {"id"=>"2"}
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books"  WHERE "books"."id" = 2  ORDER BY "books"."id" ASC LIMIT 1
+  [1m[36mBookGenre Load (0.6ms)[0m  [1mSELECT "book_genres".* FROM "book_genres"  WHERE "book_genres"."book_id" IN (2)[0m
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books"  WHERE "books"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 2]]
+Completed 200 OK in 28ms (Views: 1.8ms | ActiveRecord: 2.8ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "books"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 20:04:04.887373"], ["id", 8870], ["updated_at", "2015-08-22 20:04:04.887373"]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 20:04:04.891243"], ["id", 4763], ["updated_at", "2015-08-22 20:04:04.891243"]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 20:04:04.894352"], ["id", 5444], ["updated_at", "2015-08-22 20:04:04.894352"]]
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-08-22 20:04:04.897771"], ["id", 7767], ["updated_at", "2015-08-22 20:04:04.897771"]]
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "book_genres" DISABLE TRIGGER ALL;ALTER TABLE "books" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "readers" DISABLE TRIGGER ALL
+  [1m[36m (1.0ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reed_test'[0m
+  [1m[35m (25.8ms)[0m  TRUNCATE TABLE "book_genres", "books", "genres", "readers" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "book_genres" ENABLE TRIGGER ALL;ALTER TABLE "books" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "readers" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 22:04:39.564055"], ["id", 6002], ["updated_at", "2015-08-22 22:04:39.564055"]]
+  [1m[35mBook Load (0.6ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 6002  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.2ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered books/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 51ms (Views: 12.1ms | ActiveRecord: 3.1ms)
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "rating", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["amazon_id", "1MhwhaCNVTJ8Y6kRytfKARpyDNbR1cQXTo"], ["author", "Mina Murphy"], ["created_at", "2015-08-22 22:04:39.839216"], ["description", "Adipisci consequatur consequuntur aliquid rerum."], ["keywords", "dooley-effertz mina murphy adipisci consequatur consequuntur aliquid rerum."], ["rating", 2], ["reader_id", 6002], ["title", "Dooley-Effertz"], ["updated_at", "2015-08-22 22:04:39.839216"]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "book_genres" DISABLE TRIGGER ALL;ALTER TABLE "books" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "readers" DISABLE TRIGGER ALL
+  [1m[36m (1.0ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reed_test'[0m
+  [1m[35m (28.7ms)[0m  TRUNCATE TABLE "book_genres", "books", "genres", "readers" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "book_genres" ENABLE TRIGGER ALL;ALTER TABLE "books" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "readers" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 22:10:59.125746"], ["id", 9708], ["updated_at", "2015-08-22 22:10:59.125746"]]
+  [1m[35mBook Load (0.5ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 9708  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.2ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered books/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 54ms (Views: 9.1ms | ActiveRecord: 3.1ms)
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "rating", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["amazon_id", "147V17uhh3N4Mc6YwE5dYB55Q4kY9v6HBi"], ["author", "Hope Windler"], ["created_at", "2015-08-22 22:10:59.416998"], ["description", "Et aspernatur quo qui et ut repudiandae impedit."], ["keywords", "fay llc hope windler et aspernatur quo qui et ut repudiandae impedit."], ["rating", 3], ["reader_id", 9708], ["title", "Fay LLC"], ["updated_at", "2015-08-22 22:10:59.416998"]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "book_genres" DISABLE TRIGGER ALL;ALTER TABLE "books" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "readers" DISABLE TRIGGER ALL
+  [1m[36m (0.8ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reed_test'[0m
+  [1m[35m (6.8ms)[0m  TRUNCATE TABLE "book_genres", "books", "genres", "readers" RESTART IDENTITY CASCADE;
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "book_genres" ENABLE TRIGGER ALL;ALTER TABLE "books" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "readers" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 22:11:43.711353"], ["id", 6040], ["updated_at", "2015-08-22 22:11:43.711353"]]
+  [1m[35mBook Load (0.5ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 6040  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered books/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 29ms (Views: 6.3ms | ActiveRecord: 2.4ms)
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "rating", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["amazon_id", "14XwAx4ouWGxjo9EeEfSEarZ26EC62yG2n"], ["author", "Marc Nader"], ["created_at", "2015-08-22 22:11:43.940735"], ["description", "Reprehenderit ut dolor ipsam."], ["keywords", "moore inc marc nader reprehenderit ut dolor ipsam."], ["rating", 3], ["reader_id", 6040], ["title", "Moore Inc"], ["updated_at", "2015-08-22 22:11:43.940735"]]
+Processing by BooksController#edit as JS
+  Parameters: {"book"=>{"description"=>"Incidunt nisi harum voluptas sapiente aspernatur occaecati quidem."}, "id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT  "books".* FROM "books"  WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/edit.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 2.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "book_genres" DISABLE TRIGGER ALL;ALTER TABLE "books" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "readers" DISABLE TRIGGER ALL
+  [1m[36m (1.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reed_test'[0m
+  [1m[35m (24.0ms)[0m  TRUNCATE TABLE "book_genres", "books", "genres", "readers" RESTART IDENTITY CASCADE;
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "book_genres" ENABLE TRIGGER ALL;ALTER TABLE "books" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "readers" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-22 22:18:32.539010"], ["id", 9146], ["updated_at", "2015-08-22 22:18:32.539010"]]
+  [1m[35mBook Load (0.5ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 9146  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered books/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 42ms (Views: 9.5ms | ActiveRecord: 3.1ms)
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "rating", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["amazon_id", "1LYepMBDXmuLexQ3i8BTxuzbbCuZtYe1kR"], ["author", "Joy Maggio"], ["created_at", "2015-08-22 22:18:32.830096"], ["description", "Optio incidunt nihil autem quibusdam dignissimos cupiditate."], ["keywords", "vonrueden and sons joy maggio optio incidunt nihil autem quibusdam dignissimos cupiditate."], ["rating", 5], ["reader_id", 9146], ["title", "VonRueden and Sons"], ["updated_at", "2015-08-22 22:18:32.830096"]]
+Processing by BooksController#edit as JS
+  Parameters: {"book"=>{"description"=>"Unde aut quasi delectus at quia voluptatem explicabo qui."}, "id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT  "books".* FROM "books"  WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books"  WHERE "books"."id" = 1  ORDER BY "books"."id" ASC LIMIT 1
+  [1m[36mBookGenre Load (0.4ms)[0m  [1mSELECT "book_genres".* FROM "book_genres"  WHERE "book_genres"."book_id" IN (1)[0m
+  Rendered books/edit.html.erb (0.3ms)
+Completed 200 OK in 9717184ms (Views: 5.6ms | ActiveRecord: 5.1ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (7.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "book_genres" DISABLE TRIGGER ALL;ALTER TABLE "books" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "readers" DISABLE TRIGGER ALL
+  [1m[36m (1.5ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reed_test'[0m
+  [1m[35m (25.0ms)[0m  TRUNCATE TABLE "book_genres", "books", "genres", "readers" RESTART IDENTITY CASCADE;
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "book_genres" ENABLE TRIGGER ALL;ALTER TABLE "books" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "readers" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-23 03:04:56.456199"], ["id", 8563], ["updated_at", "2015-08-23 03:04:56.456199"]]
+  [1m[35mBook Load (0.5ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 8563  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.4ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered books/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 47ms (Views: 9.6ms | ActiveRecord: 3.4ms)
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "rating", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["amazon_id", "1FDAoHbJ4M9jQHTDi4XN3pBic7STbZr2mj"], ["author", "Heidi Rolfson IV"], ["created_at", "2015-08-23 03:04:56.733411"], ["description", "Et porro dolore laborum voluptatem ut aut cum quod."], ["keywords", "altenwerth-graham heidi rolfson iv et porro dolore laborum voluptatem ut aut cum quod."], ["rating", 2], ["reader_id", 8563], ["title", "Altenwerth-Graham"], ["updated_at", "2015-08-23 03:04:56.733411"]]
+Processing by BooksController#edit as JS
+  Parameters: {"book"=>{"description"=>"Laudantium deleniti itaque modi iure omnis."}, "id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT  "books".* FROM "books"  WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/edit.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 3.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "book_genres" DISABLE TRIGGER ALL;ALTER TABLE "books" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "readers" DISABLE TRIGGER ALL
+  [1m[36m (0.8ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reed_test'[0m
+  [1m[35m (7.4ms)[0m  TRUNCATE TABLE "book_genres", "books", "genres", "readers" RESTART IDENTITY CASCADE;
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "book_genres" ENABLE TRIGGER ALL;ALTER TABLE "books" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "readers" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-23 03:05:21.522737"], ["id", 7320], ["updated_at", "2015-08-23 03:05:21.522737"]]
+  [1m[35mBook Load (0.4ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 7320  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.2ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered books/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 28ms (Views: 5.2ms | ActiveRecord: 2.4ms)
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "rating", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["amazon_id", "1D2X78z7QLcuE7ZgEDM34xwXSxQKJVPRUa"], ["author", "Dr. Carli Williamson"], ["created_at", "2015-08-23 03:05:21.740679"], ["description", "Est placeat ut non sed in quo labore quo."], ["keywords", "oberbrunner and sons dr. carli williamson est placeat ut non sed in quo labore quo."], ["rating", 4], ["reader_id", 7320], ["title", "Oberbrunner and Sons"], ["updated_at", "2015-08-23 03:05:21.740679"]]
+Processing by BooksController#update as JS
+  Parameters: {"book"=>{"description"=>"Blanditiis maxime ipsa eos accusamus id distinctio quo laudantium."}, "id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT  "books".* FROM "books"  WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books"  WHERE "books"."id" = 1  ORDER BY "books"."id" ASC LIMIT 1
+  [1m[36mBookGenre Load (0.4ms)[0m  [1mSELECT "book_genres".* FROM "book_genres"  WHERE "book_genres"."book_id" IN (1)[0m
+Completed 500 Internal Server Error in 11499ms
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "book_genres" DISABLE TRIGGER ALL;ALTER TABLE "books" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "readers" DISABLE TRIGGER ALL
+  [1m[36m (0.8ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reed_test'[0m
+  [1m[35m (7.2ms)[0m  TRUNCATE TABLE "book_genres", "books", "genres", "readers" RESTART IDENTITY CASCADE;
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "book_genres" ENABLE TRIGGER ALL;ALTER TABLE "books" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "readers" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-23 03:06:02.142570"], ["id", 3043], ["updated_at", "2015-08-23 03:06:02.142570"]]
+  [1m[35mBook Load (0.4ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 3043  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.2ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered books/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 28ms (Views: 5.2ms | ActiveRecord: 2.3ms)
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "rating", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["amazon_id", "19Zaw468A4M5oCQtYpFdViAzq8W4sFDLx8"], ["author", "Carli Crona"], ["created_at", "2015-08-23 03:06:02.362477"], ["description", "Nam eveniet commodi distinctio nihil molestias earum est."], ["keywords", "kohler-o'reilly carli crona nam eveniet commodi distinctio nihil molestias earum est."], ["rating", 1], ["reader_id", 3043], ["title", "Kohler-O'Reilly"], ["updated_at", "2015-08-23 03:06:02.362477"]]
+Processing by BooksController#update as JS
+  Parameters: {"book"=>{"description"=>"Id aut porro consequatur dolorem ex ut quas."}, "id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT  "books".* FROM "books"  WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books"  WHERE "books"."id" = 1  ORDER BY "books"."id" ASC LIMIT 1
+  [1m[36mBookGenre Load (0.3ms)[0m  [1mSELECT "book_genres".* FROM "book_genres"  WHERE "book_genres"."book_id" IN (1)[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "books" SET "description" = $1, "keywords" = $2, "updated_at" = $3 WHERE "books"."id" = 1  [["description", "Id aut porro consequatur dolorem ex ut quas."], ["keywords", "kohler-o'reilly carli crona id aut porro consequatur dolorem ex ut quas."], ["updated_at", "2015-08-23 03:06:05.818134"]]
+Completed 500 Internal Server Error in 3461ms
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "book_genres" DISABLE TRIGGER ALL;ALTER TABLE "books" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "readers" DISABLE TRIGGER ALL
+  [1m[36m (1.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reed_test'[0m
+  [1m[35m (29.6ms)[0m  TRUNCATE TABLE "book_genres", "books", "genres", "readers" RESTART IDENTITY CASCADE;
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "book_genres" ENABLE TRIGGER ALL;ALTER TABLE "books" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "readers" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-24 16:03:48.049962"], ["id", 6550], ["updated_at", "2015-08-24 16:03:48.049962"]]
+  [1m[35mBook Load (0.5ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 6550  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered books/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 47ms (Views: 12.2ms | ActiveRecord: 3.2ms)
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "rating", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["amazon_id", "1QGrBsRQ5EfFYT1GERSFTNJSm7iWh7ewHk"], ["author", "Marcus McGlynn"], ["created_at", "2015-08-24 16:03:48.341578"], ["description", "Quae quibusdam illum sit optio."], ["keywords", "macgyver, kozey and hammes marcus mcglynn quae quibusdam illum sit optio."], ["rating", 5], ["reader_id", 6550], ["title", "MacGyver, Kozey and Hammes"], ["updated_at", "2015-08-24 16:03:48.341578"]]
+Processing by BooksController#update as JS
+  Parameters: {"book"=>{"description"=>"Tenetur laboriosam consectetur minus non dolore nesciunt magni dolores."}, "id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT  "books".* FROM "books"  WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books"  WHERE "books"."id" = 1  ORDER BY "books"."id" ASC LIMIT 1
+  [1m[36mBookGenre Load (0.3ms)[0m  [1mSELECT "book_genres".* FROM "book_genres"  WHERE "book_genres"."book_id" IN (1)[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "books" SET "description" = $1, "keywords" = $2, "updated_at" = $3 WHERE "books"."id" = 1  [["description", "Tenetur laboriosam consectetur minus non dolore nesciunt magni dolores."], ["keywords", "macgyver, kozey and hammes marcus mcglynn tenetur laboriosam consectetur minus non dolore nesciunt magni dolores."], ["updated_at", "2015-08-24 16:03:48.376355"]]
+Completed 500 Internal Server Error in 35ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "book_genres" DISABLE TRIGGER ALL;ALTER TABLE "books" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "readers" DISABLE TRIGGER ALL
+  [1m[36m (0.8ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reed_test'[0m
+  [1m[35m (14.5ms)[0m  TRUNCATE TABLE "book_genres", "books", "genres", "readers" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "book_genres" ENABLE TRIGGER ALL;ALTER TABLE "books" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "readers" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-24 16:07:02.474092"], ["id", 3211], ["updated_at", "2015-08-24 16:07:02.474092"]]
+  [1m[35mBook Load (0.4ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 3211  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered books/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 35ms (Views: 6.0ms | ActiveRecord: 2.5ms)
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "rating", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["amazon_id", "1NE4CUuWznYJ7ofCE3q3T2D6toHTYEsCdP"], ["author", "Emilia Shields"], ["created_at", "2015-08-24 16:07:02.690700"], ["description", "Expedita nulla facilis quisquam quam ab aspernatur vero."], ["keywords", "heller, dibbert and bogisich emilia shields expedita nulla facilis quisquam quam ab aspernatur vero."], ["rating", 2], ["reader_id", 3211], ["title", "Heller, Dibbert and Bogisich"], ["updated_at", "2015-08-24 16:07:02.690700"]]
+Processing by BooksController#update as JS
+  Parameters: {"book"=>{"description"=>"Debitis doloribus tempora omnis."}, "id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT  "books".* FROM "books"  WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books"  WHERE "books"."id" = 1  ORDER BY "books"."id" ASC LIMIT 1
+  [1m[36mBookGenre Load (0.3ms)[0m  [1mSELECT "book_genres".* FROM "book_genres"  WHERE "book_genres"."book_id" IN (1)[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "books" SET "description" = $1, "keywords" = $2, "updated_at" = $3 WHERE "books"."id" = 1  [["description", "Debitis doloribus tempora omnis."], ["keywords", "heller, dibbert and bogisich emilia shields debitis doloribus tempora omnis."], ["updated_at", "2015-08-24 16:07:02.718691"]]
+  Rendered books/update.js.erb (0.1ms)
+Completed 200 OK in 28ms (Views: 2.7ms | ActiveRecord: 4.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "book_genres" DISABLE TRIGGER ALL;ALTER TABLE "books" DISABLE TRIGGER ALL;ALTER TABLE "genres" DISABLE TRIGGER ALL;ALTER TABLE "readers" DISABLE TRIGGER ALL
+  [1m[36m (0.8ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reed_test'[0m
+  [1m[35m (28.3ms)[0m  TRUNCATE TABLE "book_genres", "books", "genres", "readers" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "book_genres" ENABLE TRIGGER ALL;ALTER TABLE "books" ENABLE TRIGGER ALL;ALTER TABLE "genres" ENABLE TRIGGER ALL;ALTER TABLE "readers" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by BooksController#index as HTML
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "readers" ("created_at", "id", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-08-24 16:16:01.903627"], ["id", 6021], ["updated_at", "2015-08-24 16:16:01.903627"]]
+  [1m[35mBook Load (0.4ms)[0m  SELECT "books".* FROM "books"  WHERE "books"."reader_id" = 6021  ORDER BY created_at DESC
+  [1m[36mGenre Load (0.3ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered books/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 39ms (Views: 8.2ms | ActiveRecord: 2.7ms)
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("amazon_id", "author", "created_at", "description", "keywords", "rating", "reader_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["amazon_id", "1DFaLwn4QipWHd7xoUwvcFEwYsSi8oXXQF"], ["author", "Laverna Batz DVM"], ["created_at", "2015-08-24 16:16:02.143996"], ["description", "Quas corrupti aut eveniet explicabo vitae incidunt esse."], ["keywords", "carter, powlowski and stracke laverna batz dvm quas corrupti aut eveniet explicabo vitae incidunt esse."], ["rating", 4], ["reader_id", 6021], ["title", "Carter, Powlowski and Stracke"], ["updated_at", "2015-08-24 16:16:02.143996"]]
+Processing by BooksController#update as JS
+  Parameters: {"book"=>{"description"=>"Laboriosam voluptatem doloremque nihil aspernatur iure aut dolorem."}, "id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT  "books".* FROM "books"  WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books"  WHERE "books"."id" = 1  ORDER BY "books"."id" ASC LIMIT 1
+  [1m[36mBookGenre Load (0.3ms)[0m  [1mSELECT "book_genres".* FROM "book_genres"  WHERE "book_genres"."book_id" IN (1)[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "books" SET "description" = $1, "keywords" = $2, "updated_at" = $3 WHERE "books"."id" = 1  [["description", "Laboriosam voluptatem doloremque nihil aspernatur iure aut dolorem."], ["keywords", "carter, powlowski and stracke laverna batz dvm laboriosam voluptatem doloremque nihil aspernatur iure aut dolorem."], ["updated_at", "2015-08-24 16:16:02.177312"]]
+  [1m[36mBook Load (0.2ms)[0m  [1mSELECT  "books".* FROM "books"  WHERE "books"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered books/update.js.erb (0.2ms)
+Completed 200 OK in 36ms (Views: 4.5ms | ActiveRecord: 4.9ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK

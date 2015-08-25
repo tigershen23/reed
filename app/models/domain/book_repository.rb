@@ -11,6 +11,14 @@ module Domain
       book.send(:record).save!
     end
 
+    def update(book, params)
+      puts book.description
+      book.assign_attributes(params)
+      persist(book)
+      puts book.send(:record).reload.description
+      book
+    end
+
     def destroy(book)
       @book_class.destroy(book.id)
     end
