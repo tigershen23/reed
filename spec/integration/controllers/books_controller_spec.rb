@@ -46,7 +46,7 @@ RSpec.describe BooksController, :type => :controller do
       it 'edits the book' do
         expect do
           xhr :put, :update, { id: book.id, book: book_update_params }
-        end.to change(book, :description)
+        end.to change{ book.reload.description }
       end
     end
   end
