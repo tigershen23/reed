@@ -5,9 +5,13 @@ bundle install
 
 # Copy relevant files
 cp ./config/database.yml.example ./config/database.yml
+cp ./.env.default ./.env
 
 # Set up database
 bundle exec rake db:setup
+
+# Set up test database
+bundle exec rake db:setup RAILS_ENV=test
 
 # Populate genres
 bundle exec rake populate_genres:execute
