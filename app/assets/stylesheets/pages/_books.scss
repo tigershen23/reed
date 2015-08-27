@@ -38,9 +38,24 @@ h3 {
   overflow: hidden;
 }
 
-.book:hover .remove-book {
-  opacity: 1;
-  height: auto;
+.book .div[class^='edit-book-'], div[class*=' edit-book-'] {
+  color: $brand-primary;
+  transition: opacity .6s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.book:hover { 
+  .remove-book {
+    opacity: 1;
+    height: auto;
+  }
+
+  div[class^='edit-book-'], div[class*=' edit-book-'] {
+    opacity: 1;
+    height: auto;
+  }
 }
 
 .rating-5 .rating { color: $brand-success; }

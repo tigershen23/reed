@@ -19,14 +19,14 @@
                    method: :delete,
                    remote: true,
                    data: { confirm: "Are you sure?" },
-                   class: 'remove-book-btn' %>
+                   class: 'js-btn-remove-book' %>
     </div>
     <div class="pull-right edit-book-#{book.id}">
-      <%= link_to raw("<i class='icon-edit'></i>"),
+      <%= link_to raw("<i class='fa fa-pencil-square-o fa-2x'></i>"),
                    book_path(book.id),
                    method: :put,
                    remote: true,
-                   class: 'edit-book-btn' %>
+                   class: 'js-btn-edit-book btn-edit-book' %>
     </div>
     <h3>
       <a href="#" class="book-title"><%= book.title %></a>
