@@ -7,6 +7,9 @@ bundle install
 cp ./config/database.yml.example ./config/database.yml
 cp ./.env.default ./.env
 
+# Create postgres user
+createuser reed -d
+
 # Set up database
 bundle exec rake db:setup
 
