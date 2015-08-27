@@ -21,6 +21,13 @@
                    data: { confirm: "Are you sure?" },
                    class: 'remove-book-btn' %>
     </div>
+    <div class="pull-right edit-book-#{book.id}">
+      <%= link_to raw("<i class='icon-edit'></i>"),
+                   book_path(book.id),
+                   method: :put,
+                   remote: true,
+                   class: 'edit-book-btn' %>
+    </div>
     <h3>
       <a href="#" class="book-title"><%= book.title %></a>
     </h3>
