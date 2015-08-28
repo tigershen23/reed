@@ -21,12 +21,15 @@
                    data: { confirm: "Are you sure?" },
                    class: 'js-btn-remove-book' %>
     </div>
-    <div class="pull-right edit-book-#{book.id}">
-      <%= link_to raw("<i class='fa fa-pencil-square-o fa-2x'></i>"),
-                   book_path(book.id),
-                   method: :put,
-                   remote: true,
-                   class: 'js-btn-edit-book btn-edit-book' %>
+    <div class="pull-right edit-book-<%= book.id %>">
+      <a href='#' id='show-edit-book-form' data-toggle="modal" data-target="#book-form-modal">
+        <i class='fa fa-pencil-square-o fa-2x'></i>
+      </a>
+      <%# <%= link_to raw("<i class='icon-edit'></i>"),
+      <%#              book_path(book.id),
+      <%#              method: :put,
+      <%#              remote: true,
+      <%#              class: 'js-btn-edit-book edit-book-btn' %>
     </div>
     <h3>
       <a href="#" class="book-title"><%= book.title %></a>

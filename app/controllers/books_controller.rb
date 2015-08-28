@@ -19,6 +19,7 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = domain_factory.book_repository.find_by_id(params[:id])
   end
 
   def create
