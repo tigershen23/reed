@@ -25,11 +25,10 @@
       <a href='#' id='show-edit-book-form' data-toggle="modal" data-target="#book-form-modal">
         <i class='fa fa-pencil-square-o fa-2x'></i>
       </a>
-      <%# <%= link_to raw("<i class='icon-edit'></i>"),
-      <%#              book_path(book.id),
-      <%#              method: :put,
-      <%#              remote: true,
-      <%#              class: 'js-btn-edit-book edit-book-btn' %>
+      <%= link_to raw("<i class='icon-edit'></i>"),
+                   edit_boot_path(book.id),
+                   remote: true,
+                   class: 'js-btn-edit-book edit-book-btn' %>
     </div>
     <h3>
       <a href="#" class="book-title"><%= book.title %></a>

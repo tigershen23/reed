@@ -1,56 +1,43 @@
-<div class="modal fade in" id="book-form-modal" tabindex="-1" role="dialog" aria-labelledby="newBookModalTitle" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      </div>
-      <%= form_for(Book.new, remote: true,
-                   html: { class: 'horizontal-form' }) do |f| %>
-      <div class="modal-body">
-        <div class='col-sm-8'>
-          <div class='form-group'>
-            <%= f.text_field :title, class: 'form-control', placeholder: 'Title' %>
-          </div>
+<%= form_for(Book.new, remote: true,
+             html: { class: 'horizontal-form' }) do |f| %>
+   <div class="modal-body">
+     <div class='col-sm-8'>
+       <div class='form-group'>
+         <%= f.text_field :title, class: 'form-control', placeholder: 'Title' %>
+       </div>
 
-          <div class='form-group'>
-            <%= f.text_field :author, class: 'form-control', placeholder: 'Author' %>
-          </div>
+       <div class='form-group'>
+         <%= f.text_field :author, class: 'form-control', placeholder: 'Author' %>
+       </div>
 
-          <div class='form-group'>
-            <%= f.text_area :description, class: 'form-control', placeholder: 'Description, Summary, Review...' %>
-          </div>
+       <div class='form-group'>
+         <%= f.text_area :description, class: 'form-control', placeholder: 'Description, Summary, Review...' %>
+       </div>
 
-          <div class='form-group'>
-            <%= f.text_field :amazon_id, class: 'form-control', placeholder: 'Amazon ID' %>
-          </div>
+       <div class='form-group'>
+         <%= f.text_field :amazon_id, class: 'form-control', placeholder: 'Amazon ID' %>
+       </div>
 
-          <br>
-          <div class='form-group'>
-            <%= f.submit class: 'btn btn-warning' %>
-          </div>
-        </div>
+       <br>
+       <div class='form-group'>
+         <%= f.submit class: 'btn btn-warning' %>
+       </div>
+     </div>
 
-        <div class='col-sm-4'>
-          <div class='form-group'>
-            <%= f.label :genre_ids, 'Genres', class: 'control-label col-lg-12' %>
-            <%= f.collection_select :genre_ids, @presenter.genres, :id, :name, {}, { multiple: true } %>
-          </div>
+     <div class='col-sm-4'>
+       <div class='form-group'>
+         <%= f.label :genre_ids, 'Genres', class: 'control-label col-lg-12' %>
+         <%= f.collection_select :genre_ids, @presenter.genres, :id, :name, {}, { multiple: true } %>
+       </div>
 
-          <div class='form-group'>
-            <%= f.label :rating, class: 'control-label col-lg-5' %>
-            <div class="col-lg-7">
-              <%= f.select(:rating, @presenter.class::RATINGS_RANGE,
-                           { include_blank: true },
-                           { class: "form-control" })  %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end %>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>
-
-
+       <div class='form-group'>
+         <%= f.label :rating, class: 'control-label col-lg-5' %>
+         <div class="col-lg-7">
+           <%= f.select(:rating, @presenter.class::RATINGS_RANGE,
+                        { include_blank: true },
+                        { class: "form-control" })  %>
+       </div>
+       </div>
+     </div>
+   </div>
+ <% end %>
