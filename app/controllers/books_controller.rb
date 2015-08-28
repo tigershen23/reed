@@ -2,30 +2,36 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update]
 
   def index
-    books = domain_factory.book_repository.search_and_filter_for_reader(
-                                            current_reader.id,
-                                            keyword: params[:keyword],
-                                            genre_name: params[:filter]
-                                          )
     genres = domain_factory.genre_repository.all
-    @presenter = domain_factory.book_presenter(books, genres)
+    @presenter = domain_factory.book_presenter(_books, genres: genres)
   end
 
   def show
   end
 
   def new
-    @book = Book.new
+    book = domain_factory.book_factory.create(Book.new)
+    @presenter = domain_factory.book_presenter(book, genres: domain_factory.genre_repository.all)
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit
-    @book = domain_factory.book_repository.find_by_id(params[:id])
+    book = domain_factory.book_repository.find_by_id(params[:id])
+    @presenter = domain_factory.book_presenter(book, genres: domain_factory.genre_repository.all)
+    # binding.pry
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
     record = domain_factory.book_class.new(book_params)
     book = domain_factory.book_factory.create_for(record, current_reader)
-    @presenter = domain_factory.book_presenter([book], nil)
+    @presenter = domain_factory.book_presenter(_books)
 
     respond_to do |format|
       if domain_factory.book_repository.persist(book)
@@ -40,7 +46,7 @@ class BooksController < ApplicationController
 
   def update
     book = domain_factory.book_repository.find_by_id(params[:id])
-    @presenter = domain_factory.book_presenter(book, nil)
+    @presenter = domain_factory.book_presenter(_books)
 
     respond_to do |format|
       if domain_factory.book_repository.update(book, book_params)
@@ -64,12 +70,20 @@ class BooksController < ApplicationController
     end
   end
 
+  def _books
+    books = domain_factory.book_repository.search_and_filter_for_reader(
+                                            current_reader.id,
+                                            keyword: params[:keyword],
+                                            genre_name: params[:filter]
+                                          )
+  end
+
   private
     def set_book
       @book = Book.find(params[:id])
     end
 
     def book_params
-      params.require(:book).permit(:title, :author, :description, :amazon_id, :rating, :finished_on, { genre_id: [] })
+      params.require(:book).permit(:title, :author, :description, :amazon_id, :rating, :finished_on, { genre_ids: [] })
     end
 end

@@ -1,1 +1,4 @@
-i$(".book-list").html("<%= raw escape_javascript(render @presenter.books) %>")
+$("book-form-modal").modal("close")
+debugger
+$("ul.book-list").html("<%= raw escape_javascript(render collection: @presenter.books, partial: 'books/book') %>")
+
