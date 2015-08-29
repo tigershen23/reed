@@ -1,4 +1,2 @@
-$("book-form-modal").modal("close")
-debugger
-$("ul.book-list").html("<%= raw escape_javascript(render collection: @presenter.books, partial: 'books/book') %>")
-
+$(".book-list").html("<%= raw escape_javascript(render collection: @presenter.books, partial: 'books/book') %>")
+$("#book-form-modal").modal("hide")

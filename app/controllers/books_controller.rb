@@ -21,7 +21,6 @@ class BooksController < ApplicationController
   def edit
     book = domain_factory.book_repository.find_by_id(params[:id])
     @presenter = domain_factory.book_presenter(book, genres: domain_factory.genre_repository.all)
-    # binding.pry
 
     respond_to do |format|
       format.js
