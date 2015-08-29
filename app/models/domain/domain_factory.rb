@@ -20,8 +20,8 @@ module Domain
     end
 
     # PRESENTERS
-    def book_presenter(books, genres)
-      Domain::BookPresenter.new(books, genres)
+    def book_presenter(books, options={})
+      Domain::BookPresenter.new(books, options)
     end
 
     # MODEL CLASS NAMES

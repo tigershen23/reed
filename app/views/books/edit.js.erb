@@ -1,1 +1,4 @@
-$("#book-form-modal").html("<%= j render 'edit' %>")
+$modal = $("#book-form-modal")
+$modal.html("<%= j render 'edit' %>")
+$modal.modal("show")
+

@@ -1,1 +1,2 @@
-i$(".book-list").html("<%= raw escape_javascript(render @presenter.books) %>")
+$(".book-list").html("<%= escape_javascript(render collection: @presenter.books, partial: 'books/book') %>")
+$("#book-form-modal").modal("hide")

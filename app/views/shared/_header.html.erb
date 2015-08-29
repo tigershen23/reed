@@ -19,9 +19,14 @@
         </li>
 
         <li>
-          <a href='#' id='show-add-book-form' class='btn btn-primary' data-toggle="modal" data-target="#book-form-modal">
-            Add a Book
-          </a>
+          <%= link_to "Add a Book",
+                      new_book_path,
+                      remote: true,
+                      class: 'btn btn-primary',
+                      id: 'show-add-book-form' %>
+          <!-- <a href='#' id='show&#45;add&#45;book&#45;form' class='btn btn&#45;primary' data&#45;toggle="modal" data&#45;target="#book&#45;form&#45;modal"> -->
+          <!--   Add a Book -->
+          <!-- </a> -->
         </li>
       </ul>
     </div>
