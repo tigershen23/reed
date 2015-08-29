@@ -45,10 +45,11 @@ class BooksController < ApplicationController
 
   def update
     book = domain_factory.book_repository.find_by_id(params[:id])
+    domain_factory.book_repository.update(book, book_params)
     @presenter = domain_factory.book_presenter(_books)
 
     respond_to do |format|
-      if domain_factory.book_repository.update(book, book_params)
+      if true
         format.js
       else
         format.html { render :new }
