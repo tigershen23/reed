@@ -14,7 +14,7 @@
 
   <div class="col-sm-9 col-sm-offset-1">
     <div class="pull-right remove-book">
-      <%= link_to raw("<i class='fa fa-times fa-2x'></i>"),
+      <%= link_to raw("<i class='fa fa-times'></i>"),
                    book_path(book.id),
                    method: :delete,
                    remote: true,
@@ -22,7 +22,7 @@
                    class: 'js-btn-remove-book' %>
     </div>
     <div class="pull-right edit-book-<%= book.id %>">
-      <%= link_to raw("<i class='fa fa-pencil-square-o fa-2x'></i>"),
+      <%= link_to raw("<i class='fa fa-pencil-square-o'></i>"),
                    edit_book_path(book.id),
                    remote: true,
                    class: 'js-btn-edit-book edit-book-btn' %>
