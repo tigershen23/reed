@@ -2,24 +2,23 @@ require 'unit_helper'
 require 'domain/book'
 
 RSpec.describe Domain::Book do
-  let(:book) { described_class.new(book_record)}
-  let(:book_record) { double(
-                          finished_on: finished_on
-  ) }
-  let(:genre_factory) { double }
-
-  let(:finished_on) { double }
+  let(:book) { Domain::Book.new(book_record) }
+  let(:book_record) { double(:book_record, finished?: finished) }
 
   describe "#finished?" do
     context "when book is not yet finished" do
-      let(:finished_on) { nil }
-      specify { expect(book.finished?).to be false }
+      let(:finished) { false }
+
+      specify "is false" do
+        expect(book.finished?).to be false
+      end
     end
 
     context "when book is finished" do
-      let(:finished_on) { double }
-
-      specify { expect(book.finished?).to be true }
+      let(:finished) { true }
+      specify "is false" do 
+        expect(book.finished?).to be true
+      end
     end
   end
 end

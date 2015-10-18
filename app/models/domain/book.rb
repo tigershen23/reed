@@ -13,7 +13,6 @@ module Domain
     attr_reader :record
     private :record
 
-    # Delegate fetching of model attributes to the record
     def_delegators :@record,
                    :amazon_id,
                    :assign_attributes,
@@ -28,7 +27,7 @@ module Domain
                    :title,
 
     def finished?
-      finished_on.present?
+      @record.finished_on.present?
     end
 
     def set_keywords
