@@ -12,6 +12,11 @@ require support_dir.join('pages', 'page')
 Dir[support_dir.join('**', '*.rb')].each { |f| require f }
 
 Capybara.default_wait_time = 20
+Capybara.javascript_driver = :webkit
+
+Capybara::Webkit.configure do |config|
+  config.block_unknown_urls
+end
 
 RSpec.configure do |config|
   config.include Capybara::DSL

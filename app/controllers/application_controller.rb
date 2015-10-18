@@ -10,7 +10,10 @@ class ApplicationController < ActionController::Base
   def create_reader
     # TODO: figure out how to move this out of controller
     r = Reader.create
-    domain_factory.sample_book.for_reader(r)
+    # TODO: use feature flag instead of querying env
+    unless Rails.env.test?
+      domain_factory.sample_book.for_reader(r)
+    end
     session[:reader_id] = r.id
     r
   end

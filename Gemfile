@@ -45,6 +45,7 @@ end
 
 group :test do
   gem 'capybara',                           '~> 2.4.4'        # simulate browser actions (uses selenium-wd)
+  gem 'capybara-webkit'
   gem 'factory_girl_rails',                 '~> 4.5.0'        # generate test data
   gem 'database_cleaner',                   '~> 1.2.0'        # clean database in and around tests
   gem 'selenium-webdriver',                 '~> 2.44.0'       # browser automation/emulation
