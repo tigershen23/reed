@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update]
+  before_action :_set_book, only: [:show, :edit, :update]
 
   def index
     genres = domain_factory.genre_repository.all
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    record = domain_factory.book_class.new(book_params)
+    record = domain_factory.book_class.new(_book_params)
     book = domain_factory.book_factory.create_for(record, current_reader)
     domain_factory.book_repository.persist(book)
     @presenter = domain_factory.book_presenter(_books)
@@ -37,7 +37,7 @@ class BooksController < ApplicationController
 
   def update
     book = domain_factory.book_repository.find_by_id(params[:id])
-    domain_factory.book_repository.update(book, book_params)
+    domain_factory.book_repository.update(book, _book_params)
     @presenter = domain_factory.book_presenter(_books)
 
     respond_to do |format|
@@ -63,12 +63,11 @@ class BooksController < ApplicationController
                                           )
   end
 
-  private
-    def set_book
-      @book = Book.find(params[:id])
-    end
+  def _set_book
+    @book = Book.find(params[:id])
+  end
 
-    def book_params
-      params.require(:book).permit(:title, :author, :description, :amazon_id, :rating, :finished_on, { genre_ids: [] })
-    end
+  def _book_params
+    params.require(:book).permit(:title, :author, :description, :amazon_id, :rating, :finished_on, { genre_ids: [] })
+  end
 end
