@@ -20,6 +20,7 @@ end
 
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include BookHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
